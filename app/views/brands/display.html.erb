@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<td><a href="/cart/<%= @brand.id %>" >My Cart</a></td>
+
+  
+<h1 style="color:blue;">Information of Person & products</h1>
+
+<table class="table">
+  <thead>
+    <tr class="success">
+        <th>Product Name</th>
+        <th>Product Title</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th>Product Category</th>
+        <th>Product Brand</th>
+
+      <th colspan="3"></th>
+    </tr>
+  	</thead>
+
+	  <tbody>
+	  	
+		  <tr class="info">  
+          <td><%= @brand.product.name %></td>
+          <td><%= @brand.product.title %></td>
+          <td><%= @brand.product.description %></td>
+         <td><%= @brand.product.price %></td>
+         
+         <td><%= @brand.category.name %></td>
+         <td><%= @brand.name %></td>
+
+      <td ><a href="/cart/<%= @brand.id %>">Add TO Cart</a></td>
+
+       
+      </tr>
+         
+   	
+  </tbody>
+
+</table>
+
+  <%= link_to 'Back', brand_path, :class => "btn btn-success" %>
+
+

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+
+      <p>
+      <b>Product Name:</b>
+      <%= link_to @brand.product.name,  display_brand_path(@brand), :class => "btn btn-success" %>
+      </p>
+
+      <p>
+      <b>Category:</b>
+      <%= @brand.category.name %>
+      </p>
+
+      <p>
+      <b>Title:</b>
+      <%= @brand.product.title %>
+      </p>
+
+      <p>
+      <b>Description:</b>
+      <%= @brand.product.description %>
+      </p>
+
+      <p>
+      <b>Price:</b>
+      <%= @brand.product.price %>
+      </p>
+
+
+  <% if current_user.has_role?(:admin) %>
+      <%= link_to 'Edit', edit_brand_path(@brand), :class => "btn btn-warning" %>
+      <%= link_to 'Back', brands_path, :class => "btn btn-success" %>
+  <% end %>
+
+ <% if current_user.has_role?(:user) %>
+  <%= link_to 'Back', brands_path, :class => "btn btn-warning" %>
+<% end %>

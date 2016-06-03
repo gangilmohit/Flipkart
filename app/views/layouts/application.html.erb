@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Polymorphic</title>
+  
+  <%= stylesheet_link_tag 'style' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+ <nav class="navbar navbar-inverse navbar-static-top">
+   <div class="container">
+  
+    
+
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  <a style="color:#808000;">Online  as <strong><%= current_user.email %></strong></a>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link', :class => "btn btn-info" %>
+  <%= link_to  "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', :class => "btn btn-primary"  %>
+   
+   
+   <% else %>
+ 
+<% end %>
+      </ul>
+    </div>
+  </nav>
+   
+  <div class="container">
+
+
+<%= yield %>
+</div>
+
+</body>
+</html>

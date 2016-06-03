@@ -1,0 +1,38 @@
+<h1 style="color:green;"> Your Cart </h1>
+
+<% if @cart.empty? %>
+	<p>Your Cart is currently Empty</p>
+	<% else %>
+
+
+<%= link_to 'Empty Your Cart', cart_clear_path, :class => "btn btn-info" %>
+<%= link_to 'Back', :back, :class => "btn btn-success"  %>
+
+
+	<% end %>
+<br><br><br>
+
+
+<% total = 0 %>
+	<ul>
+
+
+<% @cart.each do | id, quantity |%>
+	<% brand = Brand.find_by_id(id) %>
+	
+<li>
+
+	<%= link_to brand.product.title, brand, :class => "btn btn-primary" %>
+	<p><%= brand.product.description %></p>
+	<p><%= number_to_currency(brand.product.price, :unit => '$') %></p>
+	<p>Quantity: <%= quantity %></p>
+
+	</li>
+	<% total += quantity * brand.product.price  %>
+	<% end %>
+
+	<p><b><%= number_to_currency(total, :unit => '$') %></b> </p>
+
+	</ul>
+
+

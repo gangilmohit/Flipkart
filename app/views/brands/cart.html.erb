@@ -1,0 +1,25 @@
+
+
+<h1>hello</h1>
+
+<h1> Your Cart </h1>
+
+
+	
+<% @cart.each do | id, quantity |%>
+	<% brand = Brand.find_by_id(id) %>
+	
+<li>
+
+	<%= link_to product.title, product %>
+	<p><%= brand.product.description %></p>
+	<p><%= number_to_currency(brand.product.price, :unit => '$') %></p>
+	<p>Quantity: <%= quantity %></p>
+
+	</li>
+	<% end %>
+
+	</ul>
+
+
+		
