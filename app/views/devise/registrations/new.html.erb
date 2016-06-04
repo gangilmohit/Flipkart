@@ -9,7 +9,7 @@
 
 <h2 class="sup">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name))  do |f| %>
   <%= devise_error_messages! %>
 
   <% for role in User::ROLES %>
@@ -22,39 +22,41 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name, id: "name", autofocus: true, :validate => true %>
   </div>
 
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true %>
+    <%= f.text_field :address, id: 'address', autofocus: true, :validate => true %>
   </div>
 
   <div class="field">
     <%= f.label :contact %><br />
-    <%= f.text_field :contact, autofocus: true %>
+    <%= f.text_field :contact, id: 'contact' , autofocus: true, :validate => true %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, id: 'email', autofocus: true, :validate => true %>
   </div>
-
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, id: 'password', autocomplete: "off", :validate => true %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :validate => true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", :class => "btn btn-warning btn-mini" %>
+    <%= f.submit "Sign up", :onsubmit => "formValidation()", :class => "btn btn-warning btn-mini" %>
+   
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+

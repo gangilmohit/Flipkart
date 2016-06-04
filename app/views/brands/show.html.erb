@@ -3,7 +3,13 @@
 
       <p>
       <b>Product Name:</b>
+       <% if current_user.has_role?(:user) %>
       <%= link_to @brand.product.name,  display_brand_path(@brand), :class => "btn btn-success" %>
+      <% end %>
+
+      <% if current_user.has_role?(:admin) %>
+      <%=  @brand.product.name   %>
+      <% end %>
       </p>
 
       <p>
