@@ -1,0 +1,1 @@
+function formValidation(){var e=document.getElementById("name").value;return""==e?(alert("empty"),element.focus(),!1):void 0}
