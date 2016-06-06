@@ -9,5 +9,3 @@
              return false;
         }
       }
-
-    </script>
